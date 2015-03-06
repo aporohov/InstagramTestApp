@@ -1,0 +1,19 @@
+dependencies: \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/InstagramKit/InstagramKit/Engine/InstagramEngine.m \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/InstagramKit/InstagramKit/Engine/InstagramEngine.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/AFNetworking/AFNetworking/AFNetworking.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/AFNetworking/AFNetworking/AFSecurityPolicy.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/AFNetworking/AFNetworking/AFNetworkReachabilityManager.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperation.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperationManager.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/AFNetworking/AFNetworking/AFURLSessionManager.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/AFNetworking/AFNetworking/AFHTTPSessionManager.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/InstagramKit/InstagramKit/Models/InstagramUser.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/InstagramKit/InstagramKit/Models/InstagramModel.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/InstagramKit/InstagramKit/Models/InstagramMedia.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/InstagramKit/InstagramKit/Models/InstagramComment.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/InstagramKit/InstagramKit/Models/InstagramTag.h \
+  /Users/mac/Documents/git/InstagramTestApp/InstagramTestApp/InstagramTestApp/Pods/InstagramKit/InstagramKit/Models/InstagramPaginationInfo.h

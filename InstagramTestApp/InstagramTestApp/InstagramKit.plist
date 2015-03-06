@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>InstagramKitAppClientId</key>
+	<string>121ebc5cfecb4c7a8b5409eb56a817cb</string>
+	<key>InstagramKitAppRedirectURL</key>
+	<string>https://github.com/aporohov</string>
+	<key>InstagramKitBaseUrl</key>
+	<string>https://api.instagram.com/v1/</string>
+	<key>InstagramKitAuthorizationUrl</key>
+	<string>https://api.instagram.com/oauth/authorize/</string>
+</dict>
+</plist>
