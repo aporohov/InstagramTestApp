@@ -28,7 +28,17 @@
     
     self.mediaArray = [NSMutableArray new];
     
+    __weak typeof(self) weakSelf = self;
     
+    [self.table addInfiniteScrollingWithActionHandler:^{
+        
+        if (weakSelf.paginationInfo) {
+            [weakSelf testPaginationRequest:weakSelf.paginationInfo];
+        } else {
+            weakSelf.table.showsInfiniteScrolling = NO;
+        }
+        
+    }];
     
     NSLog(@"ACCESS TOKEN = %@", [InstagramEngine sharedEngine].accessToken);
 }
@@ -59,6 +69,7 @@
 {
     [[InstagramEngine sharedEngine] getPaginatedItemsForInfo:self.paginationInfo withSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
         NSLog(@"%ld more media in Pagination",(unsigned long)media.count);
+        [self.table.infiniteScrollingView stopAnimating];
         self.paginationInfo = paginationInfo;
         [self.mediaArray addObjectsFromArray:media];
         [self.table reloadData];
