@@ -87,10 +87,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MCU-7K-9DD" firstAttribute="top" secondItem="g1B-Pp-CUi" secondAttribute="top" id="DLJ-UN-BS9"/>
-                            <constraint firstItem="YKl-pU-0Gr" firstAttribute="top" secondItem="MCU-7K-9DD" secondAttribute="bottom" id="JRZ-VE-3Z0"/>
-                            <constraint firstItem="MCU-7K-9DD" firstAttribute="leading" secondItem="g1B-Pp-CUi" secondAttribute="leading" id="fay-jC-fL7"/>
-                            <constraint firstAttribute="trailing" secondItem="MCU-7K-9DD" secondAttribute="trailing" id="j1c-r1-Ag0"/>
+                            <constraint firstAttribute="trailing" secondItem="MCU-7K-9DD" secondAttribute="trailing" id="QCi-Ow-Nfz"/>
+                            <constraint firstItem="MCU-7K-9DD" firstAttribute="bottom" secondItem="YKl-pU-0Gr" secondAttribute="top" id="kDJ-4z-dD5"/>
+                            <constraint firstItem="MCU-7K-9DD" firstAttribute="leading" secondItem="g1B-Pp-CUi" secondAttribute="leading" id="r8h-pZ-HJ1"/>
+                            <constraint firstItem="MCU-7K-9DD" firstAttribute="top" secondItem="g1B-Pp-CUi" secondAttribute="top" id="zze-EB-pH3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="KNR-XS-Ioc">

@@ -11,6 +11,7 @@
 #import <UIKit+AFNetworking.h>
 #import "FeedCell.h"
 #import <UIScrollView+SVInfiniteScrolling.h>
+#import <UIScrollView+SVPullToRefresh.h>
 
 @interface FeedViewController ()
 
@@ -28,44 +29,58 @@
     
     self.mediaArray = [NSMutableArray new];
     
-    __weak typeof(self) weakSelf = self;
-    
-    [self.table addInfiniteScrollingWithActionHandler:^{
-        
-        if (weakSelf.paginationInfo) {
-            [weakSelf testPaginationRequest:weakSelf.paginationInfo];
-        } else {
-            weakSelf.table.showsInfiniteScrolling = NO;
-        }
-        
-    }];
-    
-    NSLog(@"ACCESS TOKEN = %@", [InstagramEngine sharedEngine].accessToken);
+    //NSLog(@"ACCESS TOKEN = %@", [InstagramEngine sharedEngine].accessToken);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     if ([InstagramEngine sharedEngine].accessToken) {
-        [[InstagramEngine sharedEngine] getSelfFeedWithSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
-            
-            [self.mediaArray addObjectsFromArray:media];
-            self.paginationInfo = paginationInfo;
-            
-            [self.table reloadData];
-            
-        } failure:^(NSError *error) {
-            
-        }];
+        [self reloadData];
     } else {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *loginPage = [sb instantiateViewControllerWithIdentifier:@"loginPage"];
         
         [self.navigationController presentViewController:loginPage animated:NO completion:nil];
     }
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [self.table addInfiniteScrollingWithActionHandler:^{
+        
+        if (weakSelf.paginationInfo) {
+            [weakSelf paginationRequest:weakSelf.paginationInfo];
+        } else {
+            weakSelf.table.showsInfiniteScrolling = NO;
+        }
+        
+    }];
+    
+    [self.table addPullToRefreshWithActionHandler:^{
+        [weakSelf reloadData];
+        [weakSelf.table.pullToRefreshView stopAnimating];
+        weakSelf.table.showsInfiniteScrolling = YES;
+        
+    }];
 }
 
-- (void)testPaginationRequest:(InstagramPaginationInfo *)pInfo
+- (void)reloadData {
+    
+    [self.mediaArray removeAllObjects];
+    
+    [[InstagramEngine sharedEngine] getSelfFeedWithSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
+        
+        [self.mediaArray addObjectsFromArray:media];
+        self.paginationInfo = paginationInfo;
+        
+        [self.table reloadData];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"Reload data Failed");
+    }];
+}
+
+- (void)paginationRequest:(InstagramPaginationInfo *)pInfo
 {
     [[InstagramEngine sharedEngine] getPaginatedItemsForInfo:self.paginationInfo withSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
         NSLog(@"%ld more media in Pagination",(unsigned long)media.count);
@@ -113,7 +128,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
+    NSLog(@"%f %f ", scrollView.contentInset.top, scrollView.contentOffset.y);
 }
 
 @end
