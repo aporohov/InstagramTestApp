@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Assets.car</key>
+		<data>
+		Qjxq9+RV3YaS7vFfSi1eTpGgKLQ=
+		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
@@ -17,7 +21,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aBNT6Br6nXdPVDocWDl6X2fc7k4=
+			vjc4JzqTaLP7ZRTawdSzOgYuIuM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -35,7 +39,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zlo3NheuoIeK+YsLGyL7W/XkcUc=
+			x/Iqv8Z11LHgcwtyzgapzGmBat4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -44,7 +48,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qooddRQojlU7cwNqvC2yWLj4cwY=
+			sMc79pNjdsyn4IcYnYP41m/aPAA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -53,7 +57,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cpJWi61AAh0bHen2pGVKzLD2GNE=
+			GiPClFBr4r2fnoFRp/qdvaY2iJw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -77,6 +81,10 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Assets.car</key>
+		<data>
+		Qjxq9+RV3YaS7vFfSi1eTpGgKLQ=
+		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
@@ -90,7 +98,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aBNT6Br6nXdPVDocWDl6X2fc7k4=
+			vjc4JzqTaLP7ZRTawdSzOgYuIuM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -108,7 +116,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zlo3NheuoIeK+YsLGyL7W/XkcUc=
+			x/Iqv8Z11LHgcwtyzgapzGmBat4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -117,7 +125,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qooddRQojlU7cwNqvC2yWLj4cwY=
+			sMc79pNjdsyn4IcYnYP41m/aPAA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -126,7 +134,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cpJWi61AAh0bHen2pGVKzLD2GNE=
+			GiPClFBr4r2fnoFRp/qdvaY2iJw=
 			</data>
 			<key>optional</key>
 			<true/>

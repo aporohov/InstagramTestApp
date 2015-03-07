@@ -128,7 +128,6 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"%f %f ", scrollView.contentInset.top, scrollView.contentOffset.y);
 }
 
 @end
