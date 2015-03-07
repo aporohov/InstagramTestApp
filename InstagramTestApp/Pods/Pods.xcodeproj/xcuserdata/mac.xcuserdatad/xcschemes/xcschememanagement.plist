@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-InstagramTestApp-SVPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-InstagramTestApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>740886548151EA83C318E935</key>
+		<key>508EE9E823910DC2BC43ECC1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B86034AB6A96824F1C3D5C9F</key>
+		<key>530EA9F2EF41841ABD490112</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FDDF008A1623BC9EE848AC20</key>
+		<key>D148C805F62123A7E90167B9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF96DD869AF3A98A376CB44B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -11,6 +11,8 @@
 
 @interface LogInViewController : UIViewController <UIWebViewDelegate>
 
+@property (assign, nonatomic) BOOL transitionAnimated;
+
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end

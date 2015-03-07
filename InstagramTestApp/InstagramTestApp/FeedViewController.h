@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <InstagramKit.h>
 
-@interface FeedViewController : UIViewController
+@interface FeedViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 - (IBAction)logOut:(id)sender;
 

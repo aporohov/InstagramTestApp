@@ -4,6 +4,7 @@
 target 'InstagramTestApp' do
     pod "AFNetworking", "~> 2.0"
     pod 'InstagramKit', '3.5.0'
+    pod 'SVPullToRefresh'
 end
 
 target 'InstagramTestAppTests' do

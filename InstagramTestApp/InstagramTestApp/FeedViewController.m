@@ -8,8 +8,16 @@
 
 #import "FeedViewController.h"
 #import "LogInViewController.h"
+#import <UIKit+AFNetworking.h>
+#import "FeedCell.h"
+#import <UIScrollView+SVInfiniteScrolling.h>
 
 @interface FeedViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *table;
+
+@property (nonatomic, strong) NSMutableArray *mediaArray;
+@property (nonatomic, strong) InstagramPaginationInfo *paginationInfo;
 
 @end
 
@@ -18,18 +26,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.mediaArray = [NSMutableArray new];
+    
+    
+    
     NSLog(@"ACCESS TOKEN = %@", [InstagramEngine sharedEngine].accessToken);
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *loginPage = [sb instantiateViewControllerWithIdentifier:@"loginPage"];
-    
-    [self.navigationController presentViewController:loginPage animated:NO completion:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
-    
+    if ([InstagramEngine sharedEngine].accessToken) {
+        [[InstagramEngine sharedEngine] getSelfFeedWithSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
+            
+            [self.mediaArray addObjectsFromArray:media];
+            self.paginationInfo = paginationInfo;
+            
+            [self.table reloadData];
+            
+        } failure:^(NSError *error) {
+            
+        }];
+    } else {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *loginPage = [sb instantiateViewControllerWithIdentifier:@"loginPage"];
+        
+        [self.navigationController presentViewController:loginPage animated:NO completion:nil];
+    }
+}
+
+- (void)testPaginationRequest:(InstagramPaginationInfo *)pInfo
+{
+    [[InstagramEngine sharedEngine] getPaginatedItemsForInfo:self.paginationInfo withSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
+        NSLog(@"%ld more media in Pagination",(unsigned long)media.count);
+        self.paginationInfo = paginationInfo;
+        [self.mediaArray addObjectsFromArray:media];
+        [self.table reloadData];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"Pagination Failed");
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,6 +82,27 @@
 }
 
 - (IBAction)logOut:(id)sender {
-    [[InstagramEngine sharedEngine] cancelLogin];
+    
 }
+
+#pragma mark - TableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.mediaArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    FeedCell *cell = (FeedCell*)[tableView dequeueReusableCellWithIdentifier:@"FeedCell" forIndexPath:indexPath];
+    
+    InstagramMedia *media = [self.mediaArray objectAtIndex:indexPath.row];
+    
+    [cell.mediaImageView setImageWithURL:media.standardResolutionImageURL placeholderImage:nil];
+    
+    return cell;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+}
+
 @end

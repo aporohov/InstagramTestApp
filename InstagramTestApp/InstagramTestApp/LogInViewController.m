@@ -46,7 +46,7 @@ NSString * const kRedirectUrl = @"https://github.com/aporohov";
             NSLog(@"ACCESS TOKEN = %@",accessToken);
             [[InstagramEngine sharedEngine] setAccessToken:accessToken];
             
-            [self dismissViewControllerAnimated:NO completion:nil];
+            [self dismissViewControllerAnimated:self.transitionAnimated completion:nil];
         }
         return NO;
     }

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B86034AB6A96824F1C3D5C9F"
+               BlueprintIdentifier = "508EE9E823910DC2BC43ECC1"
                BuildableName = "libPods-InstagramTestApp.a"
                BlueprintName = "Pods-InstagramTestApp"
                ReferencedContainer = "container:Pods.xcodeproj">
