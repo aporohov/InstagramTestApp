@@ -39,7 +39,7 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D location;
 @property (nonatomic, readonly) NSString* filter;
 @property (nonatomic, readonly) NSDictionary* images;
-@property (nonatomic, readonly) BOOL isLiked;
+@property (nonatomic, assign) BOOL isLiked;
 
 @property (nonatomic, readonly) NSURL *thumbnailURL;
 @property (nonatomic, readonly) CGSize thumbnailFrameSize;

@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@interface UIButton (LikeExtension)
+
+- (void)likeAnimation:(BOOL)isLiked;
+- (void)userHasLiked:(BOOL)isLiked;
+
+@end
+
 @interface FeedCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *mediaImageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
 @end

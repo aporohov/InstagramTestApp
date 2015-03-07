@@ -75,6 +75,9 @@
                                                     <state key="normal" backgroundImage="like_grey">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="likeButtonPressed:" destination="9kF-ag-5rD" eventType="touchUpInside" id="wjU-MX-3VZ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -87,6 +90,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="likeButton" destination="Ube-1j-DRY" id="caF-g8-gMg"/>
                                             <outlet property="mediaImageView" destination="aJP-2f-ENx" id="p3l-wX-FG3"/>
                                         </connections>
                                     </tableViewCell>
