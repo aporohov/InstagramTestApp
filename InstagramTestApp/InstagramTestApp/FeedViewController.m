@@ -39,10 +39,7 @@
     [super viewDidAppear:animated];
     
     if (![InstagramEngine sharedEngine].accessToken) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController *loginPage = [sb instantiateViewControllerWithIdentifier:@"loginPage"];
-        
-        [self.navigationController presentViewController:loginPage animated:NO completion:nil];
+        [self openLoginPageWithAnimation:NO];
         return;
     } else if (![InstagramDataModel sharedInstance].feedMediaArray.count) {
         [self reloadData];
@@ -65,8 +62,14 @@
         [weakSelf reloadData];
         [weakSelf.table.pullToRefreshView stopAnimating];
         weakSelf.table.showsInfiniteScrolling = YES;
-        
     }];
+}
+
+- (void)openLoginPageWithAnimation:(BOOL)animated {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *loginPage = [sb instantiateViewControllerWithIdentifier:@"loginPage"];
+    
+    [self.navigationController presentViewController:loginPage animated:animated completion:nil];
 }
 
 - (void)reloadData {
@@ -81,10 +84,7 @@
     } failure:^(NSError *error) {
         NSLog(@"Reload data Failed");
         if (![[InstagramEngine sharedEngine] accessToken]) {
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UIViewController *loginPage = [sb instantiateViewControllerWithIdentifier:@"loginPage"];
-            
-            [self.navigationController presentViewController:loginPage animated:YES completion:nil];
+            [self openLoginPageWithAnimation:YES];
         }
     }];
 }
@@ -109,24 +109,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"DetailedSegue"]) {
-        
-        NSIndexPath *cellIndexPath = [self.table indexPathForCell:(UITableViewCell*)sender];
-        
-        InstagramMedia *media = [[InstagramDataModel sharedInstance].feedMediaArray objectAtIndex:cellIndexPath.section];
-        
-        [(DetailedViewController*)segue.destinationViewController setMedia:media];
-    }
-}
-
 - (IBAction)logOut:(id)sender {
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
     
+    [InstagramEngine sharedEngine].accessToken = nil;
+    [SSKeychain deletePasswordForService:@"InstagramService" account:@"com.instagramTestApp.keychain"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [[InstagramDataModel sharedInstance].feedMediaArray removeAllObjects];
+    
+    [self openLoginPageWithAnimation:YES];
 }
 
 - (IBAction)likeButtonPressed:(id)sender {
@@ -155,6 +151,20 @@
                 NSLog(@"Like failed");
             }];
         }
+    }
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"DetailedSegue"]) {
+        
+        NSIndexPath *cellIndexPath = [self.table indexPathForCell:(UITableViewCell*)sender];
+        
+        InstagramMedia *media = [[InstagramDataModel sharedInstance].feedMediaArray objectAtIndex:cellIndexPath.section];
+        
+        [(DetailedViewController*)segue.destinationViewController setMedia:media];
     }
 }
 

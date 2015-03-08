@@ -150,11 +150,6 @@
                                 <action selector="logOut:" destination="9kF-ag-5rD" id="qrS-FT-vUe"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Log In" id="FRl-j7-4jI">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="presentation" id="rgL-dV-ECk"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="MCU-7K-9DD" id="TUM-N7-gCw"/>
