@@ -8,15 +8,6 @@
 
 #import "LogInViewController.h"
 
-//client id
-NSString * const kClientId = @"121ebc5cfecb4c7a8b5409eb56a817cb";
-//redirect uri
-NSString * const kRedirectUrl = @"https://github.com/aporohov";
-
-@interface LogInViewController ()
-
-@end
-
 @implementation LogInViewController
 
 - (void)viewDidLoad {
@@ -27,7 +18,6 @@ NSString * const kRedirectUrl = @"https://github.com/aporohov";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=token", configuration[kInstagramKitAuthorizationUrlConfigurationKey], configuration[kInstagramKitAppClientIdConfigurationKey], configuration[kInstagramKitAppRedirectUrlConfigurationKey]]];
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +35,7 @@ NSString * const kRedirectUrl = @"https://github.com/aporohov";
             NSString *accessToken = [components lastObject];
             NSLog(@"ACCESS TOKEN = %@",accessToken);
             [[InstagramEngine sharedEngine] setAccessToken:accessToken];
-            
+            [[NSUserDefaults standardUserDefaults]setObject:accessToken forKey:@"AccessToken"];
             [self dismissViewControllerAnimated:self.transitionAnimated completion:nil];
         }
         return NO;

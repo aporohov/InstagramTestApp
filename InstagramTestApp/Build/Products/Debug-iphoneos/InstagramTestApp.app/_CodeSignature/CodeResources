@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		19g/M3pbBqHFzHcwewVN77eQJ/o=
+		E+I8vo4qfZJsnWcVu1adne6Ml8g=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
@@ -21,7 +21,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AoTZjUxaxdvYDWwYRch5wO43P6M=
+			qiZJ5EJFgidmWokoNDAMH1dO/a0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -30,7 +30,25 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JwHRwNAvw4MiZaCwP0CtkVaGaKA=
+			8yBtrDrG571EIGUuRW4U48yKYcc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/JjY-uQ-1s2-view-aMQ-nS-snY.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			cHB/UkhPvkFQo8e58RnIgUafTc0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/UIViewController-JjY-uQ-1s2.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SSbh3JF58uHIhv442PsM4HX8nwM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -39,7 +57,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jD0/6BTBvPoITXc8tzbaAzk0VNw=
+			fmOoGFb+CWQlBAB5UVLcyqpeyP8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -48,7 +66,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Kr6AG8bpKODOHtVk91LCohzRb+Y=
+			/qzs3hO6wze3AhNCSmYqflss6KY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -57,7 +75,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DsZOx7lranp3SlgcCVmSKauaAD4=
+			vKKfPjA0leXEGJo4d8vPRmbYPAw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -83,7 +101,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		19g/M3pbBqHFzHcwewVN77eQJ/o=
+		E+I8vo4qfZJsnWcVu1adne6Ml8g=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
@@ -98,7 +116,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AoTZjUxaxdvYDWwYRch5wO43P6M=
+			qiZJ5EJFgidmWokoNDAMH1dO/a0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -107,7 +125,25 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JwHRwNAvw4MiZaCwP0CtkVaGaKA=
+			8yBtrDrG571EIGUuRW4U48yKYcc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/JjY-uQ-1s2-view-aMQ-nS-snY.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			cHB/UkhPvkFQo8e58RnIgUafTc0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/UIViewController-JjY-uQ-1s2.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SSbh3JF58uHIhv442PsM4HX8nwM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -116,7 +152,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jD0/6BTBvPoITXc8tzbaAzk0VNw=
+			fmOoGFb+CWQlBAB5UVLcyqpeyP8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -125,7 +161,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Kr6AG8bpKODOHtVk91LCohzRb+Y=
+			/qzs3hO6wze3AhNCSmYqflss6KY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -134,7 +170,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DsZOx7lranp3SlgcCVmSKauaAD4=
+			vKKfPjA0leXEGJo4d8vPRmbYPAw=
 			</data>
 			<key>optional</key>
 			<true/>

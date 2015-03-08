@@ -31,7 +31,7 @@
 @property (nonatomic, readonly) NSDate *createdDate;
 @property (nonatomic, readonly) NSString* link;
 @property (nonatomic, readonly) InstagramComment* caption;
-@property (nonatomic, readonly) NSInteger likesCount;
+@property (nonatomic, assign) NSInteger likesCount;
 @property (nonatomic, readonly) NSArray *likes;
 @property (nonatomic, readonly) NSInteger commentCount;
 @property (nonatomic, readonly) NSArray *comments;

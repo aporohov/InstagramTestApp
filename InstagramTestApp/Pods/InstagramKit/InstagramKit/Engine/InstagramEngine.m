@@ -546,6 +546,9 @@ typedef enum
     } failure:^(NSError *error, NSInteger statusCode) {
         if(failure)
 		{
+            if (statusCode == 400) {
+                [[InstagramEngine sharedEngine] setAccessToken:nil];
+            }
 			failure(error);
 		}
     }];

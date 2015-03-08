@@ -18,6 +18,11 @@
 		043EE4661AAA46F300D150F9 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE4651AAA46F300D150F9 /* FeedViewController.m */; };
 		043EE46C1AAB1B8500D150F9 /* FeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE46B1AAB1B8500D150F9 /* FeedCell.m */; };
 		043EE46F1AAB7B7F00D150F9 /* InstagramDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE46E1AAB7B7F00D150F9 /* InstagramDataModel.m */; };
+		043EE4721AABA7CD00D150F9 /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE4711AABA7CD00D150F9 /* DetailedViewController.m */; };
+		043EE4761AABB3D500D150F9 /* FeedHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE4751AABB3D500D150F9 /* FeedHeader.m */; };
+		043EE4791AAC3A2F00D150F9 /* MediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE4781AAC3A2F00D150F9 /* MediaCell.m */; };
+		043EE47C1AAC3A4600D150F9 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE47B1AAC3A4600D150F9 /* CommentCell.m */; };
+		043EE4811AAC541400D150F9 /* UIButton+LikeExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE4801AAC541400D150F9 /* UIButton+LikeExtension.m */; };
 		B645C26DA1FC5C2AC283078C /* libPods-InstagramTestApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8AB921F6EE075134A7393C /* libPods-InstagramTestApp.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +57,16 @@
 		043EE46B1AAB1B8500D150F9 /* FeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedCell.m; sourceTree = "<group>"; };
 		043EE46D1AAB7B7F00D150F9 /* InstagramDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramDataModel.h; sourceTree = "<group>"; };
 		043EE46E1AAB7B7F00D150F9 /* InstagramDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramDataModel.m; sourceTree = "<group>"; };
+		043EE4701AABA7CD00D150F9 /* DetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedViewController.h; sourceTree = "<group>"; };
+		043EE4711AABA7CD00D150F9 /* DetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
+		043EE4741AABB3D500D150F9 /* FeedHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedHeader.h; sourceTree = "<group>"; };
+		043EE4751AABB3D500D150F9 /* FeedHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedHeader.m; sourceTree = "<group>"; };
+		043EE4771AAC3A2F00D150F9 /* MediaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaCell.h; sourceTree = "<group>"; };
+		043EE4781AAC3A2F00D150F9 /* MediaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaCell.m; sourceTree = "<group>"; };
+		043EE47A1AAC3A4600D150F9 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		043EE47B1AAC3A4600D150F9 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		043EE47F1AAC541400D150F9 /* UIButton+LikeExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LikeExtension.h"; sourceTree = "<group>"; };
+		043EE4801AAC541400D150F9 /* UIButton+LikeExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LikeExtension.m"; sourceTree = "<group>"; };
 		800A88CCA45CEDDD400033B6 /* Pods-InstagramTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTestApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTestApp/Pods-InstagramTestApp.release.xcconfig"; sourceTree = "<group>"; };
 		A28FF339D47C495B84CA38B2 /* Pods-InstagramTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTestApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTestApp/Pods-InstagramTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BA8AB921F6EE075134A7393C /* libPods-InstagramTestApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramTestApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,14 +116,13 @@
 			children = (
 				043EE43D1AAA0D3C00D150F9 /* AppDelegate.h */,
 				043EE43E1AAA0D3C00D150F9 /* AppDelegate.m */,
+				043EE4731AABA7D300D150F9 /* Models */,
 				043EE4401AAA0D3C00D150F9 /* LogInViewController.h */,
 				043EE4411AAA0D3C00D150F9 /* LogInViewController.m */,
-				043EE4641AAA46F300D150F9 /* FeedViewController.h */,
-				043EE4651AAA46F300D150F9 /* FeedViewController.m */,
-				043EE46A1AAB1B8500D150F9 /* FeedCell.h */,
-				043EE46B1AAB1B8500D150F9 /* FeedCell.m */,
-				043EE46D1AAB7B7F00D150F9 /* InstagramDataModel.h */,
-				043EE46E1AAB7B7F00D150F9 /* InstagramDataModel.m */,
+				043EE47F1AAC541400D150F9 /* UIButton+LikeExtension.h */,
+				043EE4801AAC541400D150F9 /* UIButton+LikeExtension.m */,
+				043EE47D1AAC535300D150F9 /* Feed */,
+				043EE47E1AAC536C00D150F9 /* DetailedView */,
 				043EE4431AAA0D3C00D150F9 /* Main.storyboard */,
 				043EE4461AAA0D3C00D150F9 /* Images.xcassets */,
 				043EE4481AAA0D3D00D150F9 /* LaunchScreen.xib */,
@@ -142,6 +156,41 @@
 				043EE4541AAA0D3D00D150F9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		043EE4731AABA7D300D150F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				043EE46D1AAB7B7F00D150F9 /* InstagramDataModel.h */,
+				043EE46E1AAB7B7F00D150F9 /* InstagramDataModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		043EE47D1AAC535300D150F9 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				043EE4641AAA46F300D150F9 /* FeedViewController.h */,
+				043EE4651AAA46F300D150F9 /* FeedViewController.m */,
+				043EE46A1AAB1B8500D150F9 /* FeedCell.h */,
+				043EE46B1AAB1B8500D150F9 /* FeedCell.m */,
+				043EE4741AABB3D500D150F9 /* FeedHeader.h */,
+				043EE4751AABB3D500D150F9 /* FeedHeader.m */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		043EE47E1AAC536C00D150F9 /* DetailedView */ = {
+			isa = PBXGroup;
+			children = (
+				043EE4701AABA7CD00D150F9 /* DetailedViewController.h */,
+				043EE4711AABA7CD00D150F9 /* DetailedViewController.m */,
+				043EE4771AAC3A2F00D150F9 /* MediaCell.h */,
+				043EE4781AAC3A2F00D150F9 /* MediaCell.m */,
+				043EE47A1AAC3A4600D150F9 /* CommentCell.h */,
+				043EE47B1AAC3A4600D150F9 /* CommentCell.m */,
+			);
+			name = DetailedView;
 			sourceTree = "<group>";
 		};
 		262C089DEC38A8DD9D5E19B1 /* Frameworks */ = {
@@ -299,8 +348,13 @@
 			files = (
 				043EE4421AAA0D3C00D150F9 /* LogInViewController.m in Sources */,
 				043EE46C1AAB1B8500D150F9 /* FeedCell.m in Sources */,
+				043EE4791AAC3A2F00D150F9 /* MediaCell.m in Sources */,
+				043EE47C1AAC3A4600D150F9 /* CommentCell.m in Sources */,
+				043EE4721AABA7CD00D150F9 /* DetailedViewController.m in Sources */,
 				043EE46F1AAB7B7F00D150F9 /* InstagramDataModel.m in Sources */,
+				043EE4761AABB3D500D150F9 /* FeedHeader.m in Sources */,
 				043EE43F1AAA0D3C00D150F9 /* AppDelegate.m in Sources */,
+				043EE4811AAC541400D150F9 /* UIButton+LikeExtension.m in Sources */,
 				043EE4661AAA46F300D150F9 /* FeedViewController.m in Sources */,
 				043EE43C1AAA0D3C00D150F9 /* main.m in Sources */,
 			);
