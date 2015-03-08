@@ -35,7 +35,10 @@
             NSString *accessToken = [components lastObject];
             NSLog(@"ACCESS TOKEN = %@",accessToken);
             [[InstagramEngine sharedEngine] setAccessToken:accessToken];
-            [[NSUserDefaults standardUserDefaults]setObject:accessToken forKey:@"AccessToken"];
+            
+            //save token in keychain
+            [SSKeychain setPassword:accessToken forService:@"InstagramService" account:@"com.instagramTestApp.keychain"];
+            
             [self dismissViewControllerAnimated:self.transitionAnimated completion:nil];
         }
         return NO;

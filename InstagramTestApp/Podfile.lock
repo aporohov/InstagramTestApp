@@ -22,16 +22,19 @@ PODS:
     - AFNetworking/NSURLSession
   - InstagramKit (3.5.0):
     - AFNetworking (~> 2.0)
+  - SSKeychain (1.2.2)
   - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - InstagramKit (= 3.5.0)
+  - SSKeychain
   - SVPullToRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
   InstagramKit: f96f2e6ec35efe6c2bfc33b63b2ba56d9856c0c9
+  SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
 
 COCOAPODS: 0.35.0

@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:@"AccessToken"];
+    NSString *token = [SSKeychain passwordForService:@"InstagramService" account:@"com.instagramTestApp.keychain"];
     if (token) {
         [[InstagramEngine sharedEngine] setAccessToken:token];
     }
@@ -43,6 +43,7 @@
         UIViewController *loginPage = [sb instantiateViewControllerWithIdentifier:@"loginPage"];
         
         [self.navigationController presentViewController:loginPage animated:NO completion:nil];
+        return;
     } else if (![InstagramDataModel sharedInstance].feedMediaArray.count) {
         [self reloadData];
     } else {

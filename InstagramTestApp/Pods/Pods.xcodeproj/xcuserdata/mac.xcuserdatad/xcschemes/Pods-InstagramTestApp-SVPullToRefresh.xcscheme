@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF96DD869AF3A98A376CB44B"
+               BlueprintIdentifier = "FEC5F3FC5DF640F87FC43673"
                BuildableName = "libPods-InstagramTestApp-SVPullToRefresh.a"
                BlueprintName = "Pods-InstagramTestApp-SVPullToRefresh"
                ReferencedContainer = "container:Pods.xcodeproj">

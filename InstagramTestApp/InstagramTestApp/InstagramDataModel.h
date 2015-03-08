@@ -10,7 +10,7 @@
 
 @interface InstagramDataModel : NSObject
 
-@property (nonatomic, strong) NSMutableArray *feedMediaArray;
+@property (nonatomic, copy) NSMutableArray *feedMediaArray;
 
 + (InstagramDataModel*)sharedInstance;
 

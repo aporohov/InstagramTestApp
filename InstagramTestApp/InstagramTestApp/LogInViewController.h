@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "InstagramKit.h"
+#import <SSKeychain.h>
 
 @interface LogInViewController : UIViewController <UIWebViewDelegate>
 

@@ -23,6 +23,7 @@
 		043EE4791AAC3A2F00D150F9 /* MediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE4781AAC3A2F00D150F9 /* MediaCell.m */; };
 		043EE47C1AAC3A4600D150F9 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE47B1AAC3A4600D150F9 /* CommentCell.m */; };
 		043EE4811AAC541400D150F9 /* UIButton+LikeExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 043EE4801AAC541400D150F9 /* UIButton+LikeExtension.m */; };
+		043EE4831AACE72900D150F9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043EE4821AACE72900D150F9 /* Security.framework */; };
 		B645C26DA1FC5C2AC283078C /* libPods-InstagramTestApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8AB921F6EE075134A7393C /* libPods-InstagramTestApp.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		043EE47B1AAC3A4600D150F9 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		043EE47F1AAC541400D150F9 /* UIButton+LikeExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LikeExtension.h"; sourceTree = "<group>"; };
 		043EE4801AAC541400D150F9 /* UIButton+LikeExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LikeExtension.m"; sourceTree = "<group>"; };
+		043EE4821AACE72900D150F9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		800A88CCA45CEDDD400033B6 /* Pods-InstagramTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTestApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTestApp/Pods-InstagramTestApp.release.xcconfig"; sourceTree = "<group>"; };
 		A28FF339D47C495B84CA38B2 /* Pods-InstagramTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTestApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTestApp/Pods-InstagramTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BA8AB921F6EE075134A7393C /* libPods-InstagramTestApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramTestApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043EE4831AACE72900D150F9 /* Security.framework in Frameworks */,
 				B645C26DA1FC5C2AC283078C /* libPods-InstagramTestApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +199,7 @@
 		262C089DEC38A8DD9D5E19B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				043EE4821AACE72900D150F9 /* Security.framework */,
 				BA8AB921F6EE075134A7393C /* libPods-InstagramTestApp.a */,
 			);
 			name = Frameworks;
