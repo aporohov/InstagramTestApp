@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <InstagramKit.h>
+#import "CellHeightCacheViewController.h"
 
-@interface DetailedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface DetailedViewController : CellHeightCacheViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) InstagramMedia *media;
-
-@property (weak, nonatomic) IBOutlet UITableView *table;
 
 @end

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreData+MagicalRecord.h>
 #import <InstagramKit.h>
+#import "CellHeightCacheViewController.h"
 
-@interface FeedViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface FeedViewController : CellHeightCacheViewController <UITableViewDelegate, UITableViewDataSource>
 
 - (IBAction)logOut:(id)sender;
 

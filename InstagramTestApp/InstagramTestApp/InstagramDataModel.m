@@ -30,6 +30,14 @@
     return self;
 }
 
+- (void)loadCommentsForMedia:(InstagramMedia*)media {
+    [[InstagramEngine sharedEngine]getCommentsOnMedia:media withSuccess:^(NSArray *comments) {
+        NSLog(@"n= %d", [comments count]);
+    } failure:^(NSError *error) {
+        NSLog(@"Comments loading failed");
+    }];
+}
+
 - (void)fetchEntities {
     NSArray *entities = [Media MR_findAllSortedBy:@"createdDate" ascending:NO];
     

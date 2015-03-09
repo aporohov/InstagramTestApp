@@ -19,11 +19,8 @@
 
 @interface FeedViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *table;
-
 @property (nonatomic, strong) InstagramPaginationInfo *paginationInfo;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, strong) NSMutableDictionary *estimatedRowHeightCache;
 
 @end
 
@@ -37,9 +34,6 @@
         [[InstagramEngine sharedEngine] setAccessToken:token];
         [[InstagramDataModel sharedInstance] fetchEntities];
     }
-    //self.table.estimatedRowHeight = 50;
-    //self.table.rowHeight = UITableViewAutomaticDimension;
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -51,7 +45,6 @@
     } else if (!self.paginationInfo) {
         [self reloadData];
     } else {
-        //[self.table reloadData];
         [self tableViewReloadData];
     }
     
@@ -89,7 +82,6 @@
         
         self.paginationInfo = paginationInfo;
         
-        //[self.table reloadData];
         [self tableViewReloadData];
     } failure:^(NSError *error) {
         NSLog(@"Reload data Failed");
@@ -106,7 +98,7 @@
         [self.table.infiniteScrollingView stopAnimating];
         self.paginationInfo = paginationInfo;
         [[InstagramDataModel sharedInstance].feedMediaArray addObjectsFromArray:media];
-        //[self.table reloadData];
+        
         [self tableViewReloadData];
     } failure:^(NSError *error) {
         [self.table.infiniteScrollingView stopAnimating];
@@ -241,53 +233,13 @@
         return cell;
     } else {
         CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCommentCell" forIndexPath:indexPath];
-        [cell configureCellWithComment:[media.comments objectAtIndex:indexPath.row - 1]];
+        [cell configureCellWithComment:[media.comments objectAtIndex:([media.comments count] - indexPath.row)]];
         if (![self isEstimatedRowHeightInCache:indexPath]) {
             CGSize cellSize = [cell systemLayoutSizeFittingSize:CGSizeMake(self.view.frame.size.width, 0) withHorizontalFittingPriority:1000.0 verticalFittingPriority:50.0];
             [self putEstimatedCellHeightToCache:indexPath height:cellSize.height];
         }
         return cell;
     }
-}
-
-#pragma mark - estimated height cache methods
-
-// put height to cache
-- (void) putEstimatedCellHeightToCache:(NSIndexPath *) indexPath height:(CGFloat) height {
-    [self initEstimatedRowHeightCacheIfNeeded];
-    [self.estimatedRowHeightCache setObject:[[NSNumber alloc] initWithFloat:height] forKey:indexPath];
-}
-
-// get height from cache
-- (CGFloat) getEstimatedCellHeightFromCache:(NSIndexPath *) indexPath defaultHeight:(CGFloat) defaultHeight {
-    [self initEstimatedRowHeightCacheIfNeeded];
-    NSNumber *estimatedHeight = [self.estimatedRowHeightCache objectForKey:indexPath];
-    if (estimatedHeight != nil) {
-        return [estimatedHeight floatValue];
-    }
-    return defaultHeight;
-}
-
-// check if height is on cache
-- (BOOL) isEstimatedRowHeightInCache:(NSIndexPath *) indexPath {
-    if ([self getEstimatedCellHeightFromCache:indexPath defaultHeight:0] > 0) {
-        return YES;
-    }
-    return NO;
-}
-
-// init cache
--(void) initEstimatedRowHeightCacheIfNeeded {
-    if (self.estimatedRowHeightCache == nil) {
-        self.estimatedRowHeightCache = [[NSMutableDictionary alloc] init];
-    }
-}
-
-// custom [self.tableView reloadData]
--(void) tableViewReloadData {
-    // clear cache on reload
-    self.estimatedRowHeightCache = [[NSMutableDictionary alloc] init];
-    [self.table reloadData];
 }
 
 @end
