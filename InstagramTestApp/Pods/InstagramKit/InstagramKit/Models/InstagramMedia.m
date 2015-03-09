@@ -39,6 +39,8 @@
     self = [super initWithInfo:info];
     if (self && IKNotNull(info)) {
         
+        _info = [NSKeyedArchiver archivedDataWithRootObject:info];
+        
         _user = [[InstagramUser alloc] initWithInfo:info[kUser]];
         _createdDate = [[NSDate alloc] initWithTimeIntervalSince1970:[info[kCreatedDate] doubleValue]];
         _link = [[NSString alloc] initWithString:info[kLink]];

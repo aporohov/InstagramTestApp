@@ -6,6 +6,7 @@ target 'InstagramTestApp' do
     pod 'InstagramKit', '3.5.0'
     pod 'SVPullToRefresh'
     pod 'SSKeychain'
+    pod "MagicalRecord"
 end
 
 target 'InstagramTestAppTests' do

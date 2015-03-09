@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <SSKeychain.h>
+#import <CoreData+MagicalRecord.h>
 
 @interface AppDelegate ()
 
@@ -18,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [SSKeychain setAccessibilityType:kSecAttrAccessibleWhenUnlocked];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"MediaModel.sqlite"];
+    
     return YES;
 }
 

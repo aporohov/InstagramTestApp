@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *table;
 
 @property (nonatomic, strong) InstagramPaginationInfo *paginationInfo;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -32,6 +33,7 @@
     NSString *token = [SSKeychain passwordForService:@"InstagramService" account:@"com.instagramTestApp.keychain"];
     if (token) {
         [[InstagramEngine sharedEngine] setAccessToken:token];
+        [[InstagramDataModel sharedInstance] fetchEntities];
     }
 }
 
@@ -41,7 +43,7 @@
     if (![InstagramEngine sharedEngine].accessToken) {
         [self openLoginPageWithAnimation:NO];
         return;
-    } else if (![InstagramDataModel sharedInstance].feedMediaArray.count) {
+    } else if (!self.paginationInfo) {
         [self reloadData];
     } else {
         [self.table reloadData];
@@ -59,6 +61,7 @@
     }];
     
     [self.table addPullToRefreshWithActionHandler:^{
+        
         [weakSelf reloadData];
         [weakSelf.table.pullToRefreshView stopAnimating];
         weakSelf.table.showsInfiniteScrolling = YES;
@@ -75,8 +78,9 @@
 - (void)reloadData {
     
     [[InstagramEngine sharedEngine] getSelfFeedWithSuccess:^(NSArray *media, InstagramPaginationInfo *paginationInfo) {
-        [[InstagramDataModel sharedInstance].feedMediaArray removeAllObjects];
-        [[InstagramDataModel sharedInstance].feedMediaArray addObjectsFromArray:media];
+        
+        [[InstagramDataModel sharedInstance]updateFeedWithMedia:media];
+        
         self.paginationInfo = paginationInfo;
         
         [self.table reloadData];
@@ -120,7 +124,9 @@
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [[InstagramDataModel sharedInstance].feedMediaArray removeAllObjects];
+    self.paginationInfo = nil;
+    
+    [[InstagramDataModel sharedInstance]removeAllFeedMedia];
     
     [self openLoginPageWithAnimation:YES];
 }

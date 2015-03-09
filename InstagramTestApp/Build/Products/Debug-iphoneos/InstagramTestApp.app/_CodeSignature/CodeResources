@@ -4,9 +4,13 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		qs8+pzR5O0Fqdb7hcXWHJRpUWUo=
+		</data>
 		<key>Assets.car</key>
 		<data>
-		oE3mHTrocIYOr0KbD6UVvFC5Wqg=
+		cccnBccuT1KF/Sdl2UJfMHsyQQU=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
@@ -82,11 +86,19 @@
 		</dict>
 		<key>Info.plist</key>
 		<data>
-		5nW/Y6v2L6C4qv/qVj/YXxW5jZw=
+		e4rBQhF9uxQHzxMwZ2VdJ674mFA=
 		</data>
 		<key>InstagramKit.plist</key>
 		<data>
 		OJtK7maXiugYOClUDQVM8cB4FN0=
+		</data>
+		<key>MediaModel.momd/MediaModel.mom</key>
+		<data>
+		jSMyX6XUuyQFXEh5xxBu1fca2Mw=
+		</data>
+		<key>MediaModel.momd/VersionInfo.plist</key>
+		<data>
+		24N/01eju3LoiUgtMppUlFbTf10=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -96,12 +108,20 @@
 		<data>
 		7ei1hQ0F8X4/Th98GTFQ3c7H3pE=
 		</data>
+		<key>icon_120.png</key>
+		<data>
+		qs8+pzR5O0Fqdb7hcXWHJRpUWUo=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		qs8+pzR5O0Fqdb7hcXWHJRpUWUo=
+		</data>
 		<key>Assets.car</key>
 		<data>
-		oE3mHTrocIYOr0KbD6UVvFC5Wqg=
+		cccnBccuT1KF/Sdl2UJfMHsyQQU=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
@@ -179,9 +199,21 @@
 		<data>
 		OJtK7maXiugYOClUDQVM8cB4FN0=
 		</data>
+		<key>MediaModel.momd/MediaModel.mom</key>
+		<data>
+		jSMyX6XUuyQFXEh5xxBu1fca2Mw=
+		</data>
+		<key>MediaModel.momd/VersionInfo.plist</key>
+		<data>
+		24N/01eju3LoiUgtMppUlFbTf10=
+		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
 		7ei1hQ0F8X4/Th98GTFQ3c7H3pE=
+		</data>
+		<key>icon_120.png</key>
+		<data>
+		qs8+pzR5O0Fqdb7hcXWHJRpUWUo=
 		</data>
 	</dict>
 	<key>rules</key>

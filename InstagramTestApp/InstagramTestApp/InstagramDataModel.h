@@ -13,5 +13,8 @@
 @property (nonatomic, copy) NSMutableArray *feedMediaArray;
 
 + (InstagramDataModel*)sharedInstance;
+- (void)fetchEntities;
+- (void)updateFeedWithMedia:(NSArray*)mediaArray;
+- (void)removeAllFeedMedia;
 
 @end

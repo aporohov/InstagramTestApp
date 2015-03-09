@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData+MagicalRecord.h>
 #import <InstagramKit.h>
 
 @interface FeedViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>

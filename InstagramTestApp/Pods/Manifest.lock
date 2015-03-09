@@ -22,18 +22,23 @@ PODS:
     - AFNetworking/NSURLSession
   - InstagramKit (3.5.0):
     - AFNetworking (~> 2.0)
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core (= 2.2)
+  - MagicalRecord/Core (2.2)
   - SSKeychain (1.2.2)
   - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - InstagramKit (= 3.5.0)
+  - MagicalRecord
   - SSKeychain
   - SVPullToRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
   InstagramKit: f96f2e6ec35efe6c2bfc33b63b2ba56d9856c0c9
+  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
 

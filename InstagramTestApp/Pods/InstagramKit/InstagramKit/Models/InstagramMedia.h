@@ -40,6 +40,7 @@
 @property (nonatomic, readonly) NSString* filter;
 @property (nonatomic, readonly) NSDictionary* images;
 @property (nonatomic, assign) BOOL isLiked;
+@property (nonatomic) NSData *info;
 
 @property (nonatomic, readonly) NSURL *thumbnailURL;
 @property (nonatomic, readonly) CGSize thumbnailFrameSize;
