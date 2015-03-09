@@ -10,6 +10,7 @@
 #import "LogInViewController.h"
 #import <UIKit+AFNetworking.h>
 #import "FeedCell.h"
+#import "CommentCell.h"
 #import "FeedHeader.h"
 #import <UIScrollView+SVInfiniteScrolling.h>
 #import <UIScrollView+SVPullToRefresh.h>
@@ -22,6 +23,7 @@
 
 @property (nonatomic, strong) InstagramPaginationInfo *paginationInfo;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSMutableDictionary *estimatedRowHeightCache;
 
 @end
 
@@ -35,6 +37,9 @@
         [[InstagramEngine sharedEngine] setAccessToken:token];
         [[InstagramDataModel sharedInstance] fetchEntities];
     }
+    //self.table.estimatedRowHeight = 50;
+    //self.table.rowHeight = UITableViewAutomaticDimension;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -46,7 +51,8 @@
     } else if (!self.paginationInfo) {
         [self reloadData];
     } else {
-        [self.table reloadData];
+        //[self.table reloadData];
+        [self tableViewReloadData];
     }
     
     __weak typeof(self) weakSelf = self;
@@ -83,8 +89,8 @@
         
         self.paginationInfo = paginationInfo;
         
-        [self.table reloadData];
-        
+        //[self.table reloadData];
+        [self tableViewReloadData];
     } failure:^(NSError *error) {
         NSLog(@"Reload data Failed");
         if (![[InstagramEngine sharedEngine] accessToken]) {
@@ -100,8 +106,8 @@
         [self.table.infiniteScrollingView stopAnimating];
         self.paginationInfo = paginationInfo;
         [[InstagramDataModel sharedInstance].feedMediaArray addObjectsFromArray:media];
-        [self.table reloadData];
-        
+        //[self.table reloadData];
+        [self tableViewReloadData];
     } failure:^(NSError *error) {
         [self.table.infiniteScrollingView stopAnimating];
         NSLog(@"Pagination Failed");
@@ -145,6 +151,7 @@
                 media.isLiked = NO;
                 media.likesCount--;
                 [cell.likeButton likeAnimation:NO];
+                [cell.countLabel setText:[NSString stringWithFormat:@"Comments:%d Likes:%d", media.commentCount, media.likesCount]];
             } failure:^(NSError *error) {
                 NSLog(@"Unlike failed");
             }];
@@ -153,6 +160,7 @@
                 media.isLiked = YES;
                 media.likesCount++;
                 [cell.likeButton likeAnimation:YES];
+                [cell.countLabel setText:[NSString stringWithFormat:@"Comments:%d Likes:%d", media.commentCount, media.likesCount]];
             } failure:^(NSError *error) {
                 NSLog(@"Like failed");
             }];
@@ -185,10 +193,27 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    
+    InstagramMedia *media = [[InstagramDataModel sharedInstance].feedMediaArray objectAtIndex:section];
+    
+    if (media.commentCount > 3) {
+        return 4;
+    } else {
+        return 1 + media.commentCount;
+    }
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return 370;
+    } else {
+        //immutable indexpath
+        NSIndexPath *iPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+        return [self getEstimatedCellHeightFromCache:iPath defaultHeight:50];
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     FeedHeader *header = [tableView dequeueReusableCellWithIdentifier:@"FeedHeader"];
     
@@ -201,17 +226,68 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    FeedCell *cell = (FeedCell*)[tableView dequeueReusableCellWithIdentifier:@"FeedCell" forIndexPath:indexPath];
     
     InstagramMedia *media = [[InstagramDataModel sharedInstance].feedMediaArray objectAtIndex:indexPath.section];
     
-    [cell.activity startAnimating];
-    
-    [cell.likeButton userHasLiked:media.isLiked];
-    cell.mediaImageView.image = nil;
-    [cell.mediaImageView setImageWithURL:media.standardResolutionImageURL placeholderImage:nil];
-    
-    return cell;
+    if (indexPath.row == 0) {
+        FeedCell *cell = (FeedCell*)[tableView dequeueReusableCellWithIdentifier:@"FeedCell" forIndexPath:indexPath];
+        
+        [cell.activity startAnimating];
+        [cell.countLabel setText:[NSString stringWithFormat:@"Comments:%d Likes:%d", media.commentCount, media.likesCount]];
+        [cell.likeButton userHasLiked:media.isLiked];
+        cell.mediaImageView.image = nil;
+        [cell.mediaImageView setImageWithURL:media.standardResolutionImageURL placeholderImage:nil];
+        
+        return cell;
+    } else {
+        CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCommentCell" forIndexPath:indexPath];
+        [cell configureCellWithComment:[media.comments objectAtIndex:indexPath.row - 1]];
+        if (![self isEstimatedRowHeightInCache:indexPath]) {
+            CGSize cellSize = [cell systemLayoutSizeFittingSize:CGSizeMake(self.view.frame.size.width, 0) withHorizontalFittingPriority:1000.0 verticalFittingPriority:50.0];
+            [self putEstimatedCellHeightToCache:indexPath height:cellSize.height];
+        }
+        return cell;
+    }
+}
+
+#pragma mark - estimated height cache methods
+
+// put height to cache
+- (void) putEstimatedCellHeightToCache:(NSIndexPath *) indexPath height:(CGFloat) height {
+    [self initEstimatedRowHeightCacheIfNeeded];
+    [self.estimatedRowHeightCache setObject:[[NSNumber alloc] initWithFloat:height] forKey:indexPath];
+}
+
+// get height from cache
+- (CGFloat) getEstimatedCellHeightFromCache:(NSIndexPath *) indexPath defaultHeight:(CGFloat) defaultHeight {
+    [self initEstimatedRowHeightCacheIfNeeded];
+    NSNumber *estimatedHeight = [self.estimatedRowHeightCache objectForKey:indexPath];
+    if (estimatedHeight != nil) {
+        return [estimatedHeight floatValue];
+    }
+    return defaultHeight;
+}
+
+// check if height is on cache
+- (BOOL) isEstimatedRowHeightInCache:(NSIndexPath *) indexPath {
+    if ([self getEstimatedCellHeightFromCache:indexPath defaultHeight:0] > 0) {
+        return YES;
+    }
+    return NO;
+}
+
+// init cache
+-(void) initEstimatedRowHeightCacheIfNeeded {
+    if (self.estimatedRowHeightCache == nil) {
+        self.estimatedRowHeightCache = [[NSMutableDictionary alloc] init];
+    }
+}
+
+// custom [self.tableView reloadData]
+-(void) tableViewReloadData {
+    // clear cache on reload
+    self.estimatedRowHeightCache = [[NSMutableDictionary alloc] init];
+    [self.table reloadData];
 }
 
 @end

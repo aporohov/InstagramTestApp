@@ -60,15 +60,6 @@
     return 1 + [_media.comments count];
 }
 
-- (void)configureCommentCell:(CommentCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    InstagramComment *comment = [_media.comments objectAtIndex:indexPath.row - 1];
-    
-    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc]initWithString:comment.user.username attributes:@{ NSFontAttributeName : [UIFont boldSystemFontOfSize:17]}];
-    NSAttributedString *commentString = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@": %@", comment.text]];
-    [attr appendAttributedString:commentString];
-    [cell.comment setAttributedText:attr];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 0) {
@@ -82,7 +73,7 @@
         return cell;
     } else {
         CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
-        [self configureCommentCell:cell atIndexPath:indexPath];
+        [cell configureCellWithComment:[_media.comments objectAtIndex:indexPath.row - 1]];
         return cell;
     }
     

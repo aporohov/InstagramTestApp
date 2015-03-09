@@ -20,4 +20,12 @@
     // Configure the view for the selected state
 }
 
+- (void)configureCellWithComment:(InstagramComment*)comment {
+    
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc]initWithString:comment.user.username attributes:@{ NSFontAttributeName : [UIFont boldSystemFontOfSize:17]}];
+    NSAttributedString *commentString = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@": %@", comment.text]];
+    [attr appendAttributedString:commentString];
+    [self.comment setAttributedText:attr];
+}
+
 @end
