@@ -63,7 +63,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2yG-LL-AQB" id="9UW-tW-ob7">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <activityIndicatorView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aUQ-N3-1hV">
+                                                <activityIndicatorView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aUQ-N3-1hV">
                                                     <rect key="frame" x="282" y="141" width="37" height="37"/>
                                                     <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </activityIndicatorView>
@@ -98,6 +98,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9aH-Vd-AYG" firstAttribute="trailing" secondItem="9UW-tW-ob7" secondAttribute="trailingMargin" id="1Lh-NN-h03"/>
+                                                <constraint firstItem="aUQ-N3-1hV" firstAttribute="centerX" secondItem="aJP-2f-ENx" secondAttribute="centerX" constant="0.5" id="6D1-oo-J2b"/>
                                                 <constraint firstItem="aJP-2f-ENx" firstAttribute="leading" secondItem="9UW-tW-ob7" secondAttribute="leadingMargin" constant="-8" id="6Kv-lT-A5U"/>
                                                 <constraint firstItem="Ube-1j-DRY" firstAttribute="leading" secondItem="9UW-tW-ob7" secondAttribute="leadingMargin" id="E9K-4B-Azb"/>
                                                 <constraint firstItem="aJP-2f-ENx" firstAttribute="top" secondItem="9UW-tW-ob7" secondAttribute="topMargin" constant="-8" id="Ewq-Le-B2k"/>
@@ -105,6 +106,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="aJP-2f-ENx" secondAttribute="bottom" constant="42" id="c41-ze-2Bj"/>
                                                 <constraint firstItem="Ube-1j-DRY" firstAttribute="bottom" secondItem="9UW-tW-ob7" secondAttribute="bottomMargin" id="hR3-M9-vXu"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="9aH-Vd-AYG" secondAttribute="bottom" constant="5" id="st4-f4-MxP"/>
+                                                <constraint firstItem="aUQ-N3-1hV" firstAttribute="centerY" secondItem="aJP-2f-ENx" secondAttribute="centerY" constant="-0.5" id="xwb-Jb-27G"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
